@@ -21,6 +21,28 @@ def saveas():
 button = Button(root, text = "Save", command = saveas)
 button.grid()
 
+#font helvetica
+def FontHelvetica():
+    global text
+    text.config(font = "Helvetica")
+
+#font courier
+def FontCourier():
+    global text
+    text.config(font = "Courier")
+
+#font menu button
+font = Menubutton(root, text = "Font")
+font.grid()
+font.menu = Menu(font, tearoff = 0)
+font["menu"]=font.menu
+helvetica = IntVar()
+courier = IntVar()
+
+#font menu drop down
+font.menu.add_checkbutton(label = "Courier", variable = courier, command = FontCourier)
+font.menu.add_checkbutton(label = "Helvetica", variable = helvetica, command = FontHelvetica)
+
 #mainloop
 root.mainloop()
 
